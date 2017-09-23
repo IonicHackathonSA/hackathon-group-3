@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const db = require("./config/dbconnection.js");
 
 let orgSchema = mongoose.Schema({
   name :{
@@ -9,10 +8,17 @@ let orgSchema = mongoose.Schema({
   npo_number :{
     type: String,
     required: true
-  }
+  },
   contact_number :{
+    type: String
+  },
+  email :{
     type: String
   }
 });
 
-var Orgnanisation = module.exports = mongoose.model("Orgnanisation", orgSchema);
+var Organisation = module.exports = mongoose.model("Organisation", orgSchema);
+
+module.exports.getOrganisation = function(callback, limit){
+  Organisation.find(callback).limit(limit);
+}
