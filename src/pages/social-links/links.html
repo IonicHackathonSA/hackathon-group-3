@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Add Social Links</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+
+	<div class="logo">
+		<img src="assets/img/appicon.svg" alt="Ionic Logo">
+	</div>
+
+	<form #linksForm="ngForm" novalidate>
+		<ion-list no-lines>
+			<ion-item>
+				<ion-label stacked color="primary">Facebook</ion-label>
+				<ion-input [(ngModel)]="links.facebook" name="facebook" type="text" #facebook="ngModel" required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="facebook.valid || submitted == false" color="danger" padding-left>
+				Username is required
+			</p>
+		</ion-list>
+
+		<div padding>
+			<button ion-button (click)="onSignup(signupForm)" type="submit" block>Add</button>
+		</div>
+	</form>
+
+</ion-content>
